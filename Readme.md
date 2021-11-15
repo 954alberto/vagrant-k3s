@@ -41,3 +41,7 @@ master2   Ready    control-plane,master   12h   v1.21.5+k3s2
 master1   Ready    control-plane,master   19h   v1.21.5+k3s2
 ```
 
+### To improve
+
+the use of configuration file for k3s bootstrapping as described here:
+https://rancher.com/docs/k3s/latest/en/installation/install-options/#configuration-file
