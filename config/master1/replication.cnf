@@ -1,0 +1,8 @@
+[mysqld]
+server-id                   = 1
+log-bin                     = /var/log/mysql/mysql-bin.log
+binlog_expire_logs_seconds  = 2592000
+binlog-do-db                = k3s
+# replicate-do-db           = k3s
+# relay-log                 = "mysql-relay-log"
+# auto-increment-offset     = 1
