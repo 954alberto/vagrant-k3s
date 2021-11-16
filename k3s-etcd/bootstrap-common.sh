@@ -23,7 +23,6 @@ curl -sfL https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx -o /us
 curl -sfL https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -o /usr/local/bin/kubens
 chmod 755 /usr/local/bin/kubectx
 chmod 755 /usr/local/bin/kubens
-mkdir /etc/keepalived
 cp /vagrant/config/${HOSTNAME}/keepalived.conf /etc/keepalived/keepalived.conf
 chmod 644 /etc/keepalived/keepalived.conf
 systemctl enable keepalived
