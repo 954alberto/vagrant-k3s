@@ -4,8 +4,8 @@ tls-san:
 node-label:
   - "foo=bar"
   - "something=amazing"
-server: "https://192.168.100.13:6443"
-node-ip: "192.168.100.12"
+server: "https://192.168.100.10:6443"
+node-ip: "192.168.100.11"
 kube-controller-manager-arg:
 - "pod-eviction-timeout=1m"
 - "node-monitor-period=2s"
