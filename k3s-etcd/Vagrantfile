@@ -1,0 +1,55 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+#  config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=700,fmode=600"]
+#  config.vm.synced_folder "./config", "/vagrant/config", mount_options: ["dmode=755,fmode=755"]
+  config.vm.define "master1" do |master1|
+    master1.vm.box = "ubuntu/focal64"
+    master1.vm.hostname = 'master1'
+
+    master1.vm.network :private_network, ip: "192.168.100.11"
+
+    master1.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--cpus", 2]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--name", "master1"]
+    end
+
+    master1.vm.provision :shell, path: "bootstrap-common.sh"
+  #  master1.vm.provision :shell, path: "bootstrap-master1.sh"
+  end
+
+  config.vm.define "master2" do |master2|
+    master2.vm.box = "ubuntu/focal64"
+    master2.vm.hostname = 'master2'
+
+    master2.vm.network :private_network, ip: "192.168.100.12"
+
+    master2.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--cpus", 2]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--name", "master2"]      
+    end
+
+    master2.vm.provision :shell, path: "bootstrap-common.sh"
+  #  master2.vm.provision :shell, path: "bootstrap-master2.sh"
+  end
+
+  config.vm.define "master1" do |master1|
+    master3.vm.box = "ubuntu/focal64"
+    master3.vm.hostname = 'master3'
+
+    master3.vm.network :private_network, ip: "192.168.100.13"
+
+    master3.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--cpus", 2]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--name", "master3"]
+    end
+
+    master3.vm.provision :shell, path: "bootstrap-common.sh"
+   # master3.vm.provision :shell, path: "bootstrap-master3.sh"
+  end
+
+end

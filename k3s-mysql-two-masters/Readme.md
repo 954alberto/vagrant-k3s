@@ -45,3 +45,32 @@ master1   Ready    control-plane,master   19h   v1.21.5+k3s2
 
 the use of configuration file for k3s bootstrapping as described here:
 https://rancher.com/docs/k3s/latest/en/installation/install-options/#configuration-file
+
+
+export K3S_CONFIG_FILE=/etc/rancher/k3s/config.yaml
+
+
+ "--kubelet-arg 'node-status-update-frequency=4s'",
+    "--kube-controller-manager-arg 'node-monitor-period=2s'",
+    "--kube-controller-manager-arg 'node-monitor-grace-period=16s'",
+    "--kube-apiserver-arg 'default-not-ready-toleration-seconds=20'",
+    "--kube-apiserver-arg 'default-unreachable-toleration-seconds=20'"
+
+--kubelet-arg 'node-status-update-frequency=4s' --kube-controller-manager-arg 'node-monitor-period=2s' --kube-controller-manager-arg 'node-monitor-grace-period=16s' --kube-apiserver-arg 'default-not-ready-toleration-seconds=20' --kube-apiserver-arg 'default-unreachable-toleration-seconds=20'
+
+
+ "--kubelet-arg 'node-status-update-frequency=4s'",
+    "--kube-controller-manager-arg 'node-monitor-period=2s'",
+    "--kube-controller-manager-arg 'node-monitor-grace-period=16s'",
+    "--kube-apiserver-arg 'default-not-ready-toleration-seconds=20'",
+    "--kube-apiserver-arg 'default-unreachable-toleration-seconds=20'"
+
+
+
+    server \
+        '--config=/etc/rancher/k3s/config.yaml' \
+        '--kubelet-arg 'node-status-update-frequency=4s' \
+        '--kube-controller-manager-arg 'node-monitor-period=2s' \
+        '--kube-controller-manager-arg 'node-monitor-grace-period=16s' \
+        '--kube-apiserver-arg 'default-not-ready-toleration-seconds=20' \
+        '--kube-apiserver-arg 'default-unreachable-toleration-seconds=20' \

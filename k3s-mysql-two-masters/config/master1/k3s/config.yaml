@@ -1,0 +1,11 @@
+write-kubeconfig-mode: "0644"
+tls-san:
+  - "192.168.100.13"
+node-label:
+  - "foo=bar"
+  - "something=amazing"
+server: "https://192.168.100.13:6443"
+datastore-endpoint: "mysql://k3s:k3s@tcp(192.168.100.13:3306)/k3s"
+node-ip: "192.168.100.12"
+kube-controller-manager-arg:
+- "pod-eviction-timeout=1m"
