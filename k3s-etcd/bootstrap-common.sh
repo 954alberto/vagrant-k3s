@@ -28,5 +28,5 @@ cp /vagrant/config/${HOSTNAME}/keepalived.conf /etc/keepalived/keepalived.conf
 chmod 644 /etc/keepalived/keepalived.conf
 systemctl enable keepalived
 systemctl restart keepalived
-mkdir /etc/rancher/k3s
+mkdir -p /etc/rancher/k3s
 cp /vagrant/config/${HOSTNAME}/config.yaml /etc/rancher/k3s/config.yaml
