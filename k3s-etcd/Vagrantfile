@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
   #  master2.vm.provision :shell, path: "bootstrap-master2.sh"
   end
 
-  config.vm.define "master1" do |master1|
+  config.vm.define "master3" do |master3|
     master3.vm.box = "ubuntu/focal64"
     master3.vm.hostname = 'master3'
 
