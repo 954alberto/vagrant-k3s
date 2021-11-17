@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+case "$1" in
+  start)
+    echo "Starting cluster..."
+    systemctl stop k3s.service
+    systemctl stop mysql.service
+    ;;
+  stop)
+    echo "Stopping cluster..."
+    systemctl stop k3s.service
+    systemctl stop mysql.service
+  stop)
+    echo "Checking cluster..."
+    systemctl status k3s.service
+    systemctl status mysql.service
+    ;;
+  *)
+    echo "Usage: /usr/local/bin/cluster {start|stop|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
