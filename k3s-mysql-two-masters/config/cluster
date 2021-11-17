@@ -10,7 +10,7 @@ case "$1" in
     echo "Stopping cluster..."
     systemctl stop k3s.service
     systemctl stop mysql.service
-  stop)
+  status)
     echo "Checking cluster..."
     systemctl status k3s.service
     systemctl status mysql.service

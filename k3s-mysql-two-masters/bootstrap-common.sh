@@ -13,6 +13,12 @@ systemctl stop ufw.service
 systemctl disable ufw.service
 curl -sfL https://get.k3s.io -o /usr/local/bin/k3s
 chmod 755 /usr/local/bin/k3s
+/usr/local/bin/k3s server --config=/etc/rancher/k3s/config.yaml 
+systemctl stop k3s
+echo 'export INSTALL_K3S_VERSION=v1.21.1' >>~/.bashrc
+export INSTALL_K3S_VERSION=v1.21.1
+curl -sfL  https://github.com/k3s-io/k3s/releases/download/v1.21.1%2Bk3s1/k3s -o /usr/local/bin/k3s
+chmod 755 /usr/local/bin/k3s
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 echo 'source <(kubectl completion bash)' >>~/.bashrc
