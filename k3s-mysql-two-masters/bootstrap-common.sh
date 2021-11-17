@@ -9,7 +9,6 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 apt-get install -y mysql-server mysql-client mysql-common keepalived && mysqladmin version
 sysctl -w net.ipv4.ip_nonlocal_bind=1
 sysctl -w net.ipv4.ip_forward=1
-mkdir /etc/keepalived/
 systemctl stop ufw.service
 systemctl disable ufw.service
 curl -sfL https://get.k3s.io -o /usr/local/bin/k3s

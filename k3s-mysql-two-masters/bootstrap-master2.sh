@@ -1,16 +1,4 @@
 #!/usr/bin/env bash
-#apt-get update
-#apt-get remove docker docker-engine docker.io containerd runc
-#apt-get install -y ca-certificates curl gnupg lsb-release
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-#echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-#apt-get update
-#apt-get install -y docker-ce docker-ce-cli containerd.io
-#apt-get install -y mysql-server mysql-client mysql-common keepalived && mysqladmin version
-#ufw allow 3306/tcp
-#sysctl -w net.ipv4.vs.conntrack=1
-#sysctl -w net.ipv4.ip_nonlocal_bind=1
-#sysctl -w net.ipv4.ip_forward=1
 mysql -e "SHOW DATABASES;"
 mysql -e "CREATE USER 'replicator'@'%' identified by 'password';"
 mysql -e "ALTER USER 'replicator'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"
