@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+case "$1" in
+  start)
+    echo "Starting cluster..."
+    systemctl stop k3s.service
+    systemctl stop mysql.service
+    ;;
+  stop)
+    echo "Stopping cluster..."
+    systemctl stop k3s.service
+    systemctl stop mysql.service
+    ;;
+  status)
+    echo "Checking cluster..."
+    echo""
+    systemctl status k3s.service | head -n3
+    echo""
+    systemctl status mysql.service | head -n3
+    echo ""
+    echo "Looking for the VIP..."
+    if ip addr | grep 192.168.100.100; then
+      echo "I have the IP";
+    else
+      echo "I do not have the IP";
+    fi
+    ;;
+  *)
+    echo "Usage: /usr/local/bin/cluster {start|stop|status}"
+    exit 1
+    ;;
+esac
+
+exit 0

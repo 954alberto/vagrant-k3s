@@ -1,0 +1,18 @@
+write-kubeconfig-mode: "0644"
+tls-san:
+  - "192.168.100.100"
+node-label:
+  - "foo=bar"
+  - "something=amazing"
+server: "https://192.168.100.100:6443"
+datastore-endpoint: "mysql://k3s:k3s@tcp(192.168.100.100:3306)/k3s"
+node-ip: "192.168.100.101"
+kube-controller-manager-arg:
+- "pod-eviction-timeout=1m"
+- "node-monitor-period=2s"
+- "node-monitor-grace-period=16s"
+kubelet-arg:
+- "node-status-update-frequency=4s"
+kube-apiserver-arg: 
+- "default-not-ready-toleration-seconds=20"
+- "default-unreachable-toleration-seconds=20"
