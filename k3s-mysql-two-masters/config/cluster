@@ -13,8 +13,12 @@ case "$1" in
     ;;
   status)
     echo "Checking cluster..."
-    systemctl status k3s.service
-    systemctl status mysql.service
+    echo""
+    systemctl status k3s.service | head -n3
+    echo""
+    systemctl status mysql.service | head -n3
+    echo ""
+    echo "Looking for the VIP..."
     if ip addr | grep 192.168.100.100; then
       echo "I have the IP";
     else
