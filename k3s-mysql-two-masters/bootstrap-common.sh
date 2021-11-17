@@ -7,7 +7,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io
 apt-get install -y mysql-server mysql-client mysql-common keepalived && mysqladmin version
-sysctl -w net.ipv4.vs.conntrack=1
 sysctl -w net.ipv4.ip_nonlocal_bind=1
 sysctl -w net.ipv4.ip_forward=1
 mkdir /etc/keepalived/
