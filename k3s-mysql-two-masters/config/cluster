@@ -15,6 +15,11 @@ case "$1" in
     echo "Checking cluster..."
     systemctl status k3s.service
     systemctl status mysql.service
+    if ip addr | grep 192.168.100.100; then
+      echo "I have the IP";
+    else
+      echo "I do not have the IP";
+    fi
     ;;
   *)
     echo "Usage: /usr/local/bin/cluster {start|stop|status}"
