@@ -19,18 +19,18 @@ chmod 755 /usr/local/bin/k3s
 /usr/local/bin/k3s server --config=/etc/rancher/k3s/config.yaml 
 systemctl stop k3s
 echo 'export INSTALL_K3S_VERSION=v1.21.1' >>~/.bashrc
-echo 'KUBECONFIG=/etc/rancher/k3s/k3s.yaml' >>~/.bashrc
+echo 'export KUBECONFIG=/etc/rancher/k3s/k3s.yaml' >>~/.bashrc
 export INSTALL_K3S_VERSION=v1.21.1
 curl -sfL  https://github.com/k3s-io/k3s/releases/download/v1.21.1%2Bk3s1/k3s -o /usr/local/bin/k3s
 chmod 755 /usr/local/bin/k3s
+# Installing kubectl
 curl -sLO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 echo 'alias k=kubectl' >>~/.bashrc
 echo 'complete -F __start_kubectl k' >>~/.bashrc
+# Installing kubectx and kubens
 curl -sfL https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx -o /usr/local/bin/kubectx
 curl -sfL https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -o /usr/local/bin/kubens
 chmod 755 /usr/local/bin/kubectx
 chmod 755 /usr/local/bin/kubens
-
-
