@@ -6,8 +6,8 @@ mysql -e "grant replication slave on *.* to 'replicator'@'%';"
 mysql -e "show master status;"
 cp /vagrant/config/${HOSTNAME}/mysql/replication.cnf /etc/mysql/mysql.conf.d/replication.cnf
 cp /vagrant/config/${HOSTNAME}/mysql/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
-cp /vagrant/config/${HOSTNAME}/keepalived.conf /etc/keepalived/keepalived.conf
-cp /vagrant/config/${HOSTNAME}/mysqltest.sh /etc/keepalived/mysqltest.sh
+cp /vagrant/config/${HOSTNAME}/keepalived/keepalived.conf /etc/keepalived/keepalived.conf
+cp /vagrant/config/${HOSTNAME}/mysql/mysqltest.sh /etc/keepalived/mysqltest.sh
 cp /vagrant/config/cluster /usr/local/bin/cluster
 chmod +x /usr/local/bin/cluster
 systemctl restart mysql
