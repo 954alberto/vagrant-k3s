@@ -11,6 +11,9 @@ sysctl -w net.ipv4.ip_nonlocal_bind=1
 sysctl -w net.ipv4.ip_forward=1
 systemctl stop ufw.service
 systemctl disable ufw.service
+# Installing K3S
+mkdir -p /etc/rancher/k3s
+cp /vagrant/config/${HOSTNAME}/k3s/config.yaml /etc/rancher/k3s/config.yaml
 curl -sfL https://get.k3s.io -o /usr/local/bin/k3s
 chmod 755 /usr/local/bin/k3s
 /usr/local/bin/k3s server --config=/etc/rancher/k3s/config.yaml 

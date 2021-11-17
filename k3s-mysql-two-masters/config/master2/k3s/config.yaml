@@ -6,7 +6,7 @@ node-label:
   - "something=amazing"
 server: "https://192.168.100.100:6443"
 datastore-endpoint: "mysql://k3s:k3s@tcp(192.168.100.100:3306)/k3s"
-node-ip: "192.168.100.101"
+node-ip: "192.168.100.102"
 kube-controller-manager-arg:
 - "pod-eviction-timeout=1m"
 - "node-monitor-period=2s"
