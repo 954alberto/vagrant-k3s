@@ -4,10 +4,10 @@ mysql -e "CREATE USER 'replicator'@'%' identified by 'password';"
 mysql -e "ALTER USER 'replicator'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"
 mysql -e "grant replication slave on *.* to 'replicator'@'%';"
 mysql -e "show master status;"
-cp /vagrant/config/master1/replication.cnf /etc/mysql/mysql.conf.d/replication.cnf
-cp /vagrant/config/master1/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
-cp /vagrant/config/master1/keepalived.conf /etc/keepalived/keepalived.conf
-cp /vagrant/config/master1/mysqltest.sh /etc/keepalived/mysqltest.sh
+cp /vagrant/config/${HOSTNAME}/mysql/replication.cnf /etc/mysql/mysql.conf.d/replication.cnf
+cp /vagrant/config/${HOSTNAME}/mysql/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+cp /vagrant/config/${HOSTNAME}/keepalived.conf /etc/keepalived/keepalived.conf
+cp /vagrant/config/${HOSTNAME}/mysqltest.sh /etc/keepalived/mysqltest.sh
 cp /vagrant/config/cluster /usr/local/bin/cluster
 chmod +x /usr/local/bin/cluster
 systemctl restart mysql
